@@ -75,13 +75,11 @@ public class Main extends JFrame {
 		buttonComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(radioTortillaConCebolla.isSelected()){ 
+					//TODO begiratu eta garbitu
 					if(checkPatata.isSelected() && checkArrotzie.isSelected() && checkCebollie.isSelected() && !checkJamoie.isSelected() && !checkTxorizue.isSelected() && !checkPiperra.isSelected() && !checkPimienta.isSelected() && !checkLetxugie.isSelected()){
 						buttonComprobar.setBackground(new Color(168, 199, 100));
 					}else{
 						buttonComprobar.setBackground(new Color(128, 24, 21));
-						checkPatata.setSelected(false);
-						checkArrotzie.setSelected(false);
-						checkCebollie.setSelected(false);
 						
 					}
 				}else if(radioTortillaSinCebolla.isSelected()){
