@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,6 +20,15 @@ public class Main extends JFrame {
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JCheckBox checkPimienta;
+	private JCheckBox checkPatata;
+	private JCheckBox checkArrotzie;
+	private JCheckBox checkCebollie;
+	private JCheckBox checkJamoie;
+	private JCheckBox checkTxorizue;
+	private JCheckBox checkPiperra;
+	private JCheckBox checkLetxugie;
+	private JButton buttonComprobar;
 
 	/**
 	 * Launch the application.
@@ -47,50 +57,66 @@ public class Main extends JFrame {
 		setContentPane(contentPane);
 		
 		JRadioButton radioTortillaConCebolla = new JRadioButton("Tortilla con cebolla");
+		radioTortillaConCebolla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiarFormulario();
+			}
+		});
 		buttonGroup.add(radioTortillaConCebolla);
 		
 		JRadioButton radioTortillaSinCebolla = new JRadioButton("Tortilla sin cebolla");
+		radioTortillaSinCebolla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiarFormulario();
+			}
+		});
 		buttonGroup.add(radioTortillaSinCebolla);
 		
 		JRadioButton radioTortillaFrancesaCon = new JRadioButton("Tortilla francesa con jam\u00F3n");
+		radioTortillaFrancesaCon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiarFormulario();
+			}
+		});
 		buttonGroup.add(radioTortillaFrancesaCon);
 		
-		JCheckBox checkPatata = new JCheckBox("Patata");
+		checkPatata = new JCheckBox("Patata");
 		
-		JCheckBox checkCebollie = new JCheckBox("Cebollie");
+		checkCebollie = new JCheckBox("Cebolla");
 		
-		JCheckBox checkArrotzie = new JCheckBox("Arrotzie");
+		checkArrotzie = new JCheckBox("Arrotza");
 		
-		JCheckBox checkJamoie = new JCheckBox("Jamoie");
+		checkJamoie = new JCheckBox("Jamoia");
 		
-		JCheckBox checkTxorizue = new JCheckBox("Txorizue");
+		checkTxorizue = new JCheckBox("Txorizoa");
 		
-		JCheckBox checkPiperra = new JCheckBox("Piperra");
+		checkPiperra = new JCheckBox("Piperra");
 		
-		JCheckBox checkPimienta = new JCheckBox("Pimienta");
+		checkPimienta = new JCheckBox("Pimienta");
 		
-		JCheckBox checkLetxugie = new JCheckBox("Letxugie");
+		checkLetxugie = new JCheckBox("Letxuga");
 		
-		JButton buttonComprobar = new JButton("Comprobar");
+		buttonComprobar = new JButton("Comprobar");
 		buttonComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(radioTortillaConCebolla.isSelected()){ 
+				if(radioTortillaConCebolla.isSelected()){
+					
 					//TODO begiratu eta garbitu
 					if(checkPatata.isSelected() && checkArrotzie.isSelected() && checkCebollie.isSelected() && !checkJamoie.isSelected() && !checkTxorizue.isSelected() && !checkPiperra.isSelected() && !checkPimienta.isSelected() && !checkLetxugie.isSelected()){
 						buttonComprobar.setBackground(new Color(168, 199, 100));
 					}else{
 						buttonComprobar.setBackground(new Color(128, 24, 21));
-						
 					}
 				}else if(radioTortillaSinCebolla.isSelected()){
+					
 					if(checkPatata.isSelected() && checkArrotzie.isSelected() && !checkCebollie.isSelected() && !checkJamoie.isSelected() && !checkTxorizue.isSelected() && !checkPiperra.isSelected() && !checkPimienta.isSelected() && !checkLetxugie.isSelected()){
 						buttonComprobar.setBackground(new Color(168, 199, 100));
 					}else{
 						buttonComprobar.setBackground(new Color(128, 24, 21));
-						checkPatata.setSelected(false);
-						checkArrotzie.setEnabled(false);
+					
 					}
 				}else if(radioTortillaFrancesaCon.isSelected()){
+					
 					if(!checkPatata.isSelected() && checkArrotzie.isSelected() && !checkCebollie.isSelected() && checkJamoie.isSelected() && !checkTxorizue.isSelected() && !checkPiperra.isSelected() && !checkPimienta.isSelected() && !checkLetxugie.isSelected()){
 						buttonComprobar.setBackground(new Color(168, 199, 100));
 					}else{
@@ -164,5 +190,15 @@ public class Main extends JFrame {
 					.addContainerGap(31, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	public void limpiarFormulario(){
+		checkPatata.setSelected(false);
+		checkArrotzie.setSelected(false);
+		checkCebollie.setSelected(false);
+		checkJamoie.setSelected(false);
+		checkPiperra.setSelected(false);
+		checkPimienta.setSelected(false);
+		checkLetxugie.setSelected(false);
+		buttonComprobar.setBackground(new Color(240, 240, 240));
 	}
 }
